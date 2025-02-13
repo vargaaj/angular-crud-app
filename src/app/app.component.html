@@ -1,0 +1,22 @@
+<div class="app-container">
+  <!-- Buttons should disappear when showForm is true -->
+
+  <div *ngIf="!showForm && !showTable" class="app-button-container">
+    <button mat-raised-button color="primary" (click)="togglePasswordForm()">
+      New Password
+    </button>
+    <button mat-raised-button color="accent" (click)="toggleTable()">
+      Show Passwords
+    </button>
+  </div>
+
+  <!-- Show Password Form Only When 'showForm' is True -->
+  <div *ngIf="showForm">
+    <app-password-form (cancel)="togglePasswordForm()"></app-password-form>
+  </div>
+
+  <!-- Show Password Table Only When 'showTable' is True -->
+  <div *ngIf="showTable">
+    <app-passwords-table (closeTable)="toggleTable()"></app-passwords-table>
+  </div>
+</div>
